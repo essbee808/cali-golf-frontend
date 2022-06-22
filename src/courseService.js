@@ -24,8 +24,20 @@ class CourseService{
         fetch(`${this.endpoint}/courses`, configObj)
         .then(resp => resp.json())
         .then(course => {
-            console.log('return', course)
+            const c = new Course(course)
+            c.slapOnDom();
         })
+    }
 
+    // Read/Index
+    getCourses() {
+        fetch(`${this.endpoint}/courses`)
+        .then(resp => resp.json())
+        .then(courses => {
+            for (const course of courses) {
+                const c = new Course(course)
+                c.slapOnDom()
+            }
+        })
     }
 }

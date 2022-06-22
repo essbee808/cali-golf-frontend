@@ -4,7 +4,8 @@ const courseService = new CourseService(base_url)
 Course.courseForm.addEventListener('submit', handleSubmit)
 
 Course.renderForm();
-// courseService.createCourse();
+courseService.createCourse();
+courseService.getCourses();
 
 function handleSubmit() {
     event.preventDefault();

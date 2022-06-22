@@ -31,4 +31,19 @@ class Course {
         `
         return this.element
     }
+
+    courseHTML() {
+       this.element.innerHTML += `
+        <h2>${this.name}</h2>
+        <p>Address: ${this.address}</p>
+        <p>Description: ${this.description}</p>
+        <a href=${this.website} target="_blank">Visit Site</a>
+        <button id="delete-btn"Delete></button>
+       `
+       return this.element
+    }
+
+    slapOnDom() {
+        Course.coursesContainer.append(this.courseHTML())
+    }
 }
