@@ -31,6 +31,4 @@ class Course {
         `
         return this.element
     }
-
-   
 }
