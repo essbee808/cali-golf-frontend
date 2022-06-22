@@ -38,12 +38,20 @@ class Course {
         <p>Address: ${this.address}</p>
         <p>Description: ${this.description}</p>
         <a href=${this.website} target="_blank">Visit Site</a>
-        <button id="delete-btn"Delete></button>
+        <br>
+        <button class="delete-btn" data-id=${this.id} onclick="deleteCourse()">Delete</button>
        `
        return this.element
     }
 
     slapOnDom() {
         Course.coursesContainer.append(this.courseHTML())
+    }
+
+    handleClick = () => {
+       if (event.target.innerText === "Delete") {
+           this.element.remove();
+           courseService.deleteCourse(this.id)
+       }
     }
 }

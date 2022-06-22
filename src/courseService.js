@@ -40,4 +40,15 @@ class CourseService{
             }
         })
     }
+
+    // Delete
+    deleteCourse(id) {
+        debugger
+        // fetch(`${this.endpoint}/courses/${id}`, {
+        //     method: 'DELETE',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+    }
 }
