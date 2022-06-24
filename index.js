@@ -19,12 +19,18 @@ addDestinationBtn.addEventListener('click', () => {
 })
 
 // destinationService.getDestinations();
-
-Course.courseForm.addEventListener('submit', handleSubmit)
+Destination.destinationForm.addEventListener('submit', handleDestinationSubmit)
+Course.courseForm.addEventListener('submit', handleCourseSubmit)
 
 // courseService.getCourses();
 
-function handleSubmit() {
+function handleDestinationSubmit() {
+    event.preventDefault();
+    destinationService.createDestination();
+    event.target.reset();
+}
+
+function handleCourseSubmit() {
     event.preventDefault();
     courseService.createCourse();
     event.target.reset();

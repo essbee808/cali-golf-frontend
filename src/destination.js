@@ -11,13 +11,12 @@ class Destination {
         debugger
         this.element = document.createElement('h2')
         this.element.dataset.id = this.id
-   
+        debugger
         this.element.id = `destination-${this.id}`
         Destination.all.push(this)
     }
 
     static renderForm() {
-        debugger
         Destination.destinationForm.innerHTML += `
             <form id="new-destination-form">
                 Name: <input type="text" id="name"><br>
