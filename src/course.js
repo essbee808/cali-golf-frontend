@@ -5,13 +5,14 @@ class Course {
     static courseForm = document.getElementById('course-form-container')
     
     constructor({id, name, address, description, website, destination_id}){
+       
         this.id = id
         this.name = name
         this.address = address
         this.description = description
         this.website = website
         this.destination_id = destination_id
-
+        
         this.element = document.createElement('li')
         this.element.dataset.id = this.id 
         this.element.id = `course-${this.id}`
@@ -26,10 +27,9 @@ class Course {
                 Address: <input type="text" id="address"><br>
                 Description: <input type="text" id="description"><br>
                 Website: <input type="text" id="website"><br>
-                <input type="submit" id="create" value="+">
+                <input type="submit" id="create" value="Submit">
             </form>
         `
-        return this.element
     }
 
     courseHTML() {
@@ -39,7 +39,7 @@ class Course {
         <p>Description: ${this.description}</p>
         <a href=${this.website} target="_blank">Visit Site</a>
         <br>
-        <button class="delete-btn" data-id=${this.id} onclick="deleteCourse()">Delete</button>
+        <button class="delete-btn" data-id=${this.id}">Delete</button>
        `
        return this.element
     }
@@ -50,7 +50,7 @@ class Course {
 
     handleClick = () => {
        if (event.target.innerText === "Delete") {
-           this.element.remove();
+           this.element.remove()
            courseService.deleteCourse(this.id)
        }
     }

@@ -12,12 +12,12 @@ class CourseService{
             website: document.getElementById('website').value,
             destination_id: 1
         }
-
         const configObj = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
+            
             body: JSON.stringify(course)
         }
 
@@ -43,12 +43,12 @@ class CourseService{
 
     // Delete
     deleteCourse(id) {
-        debugger
-        // fetch(`${this.endpoint}/courses/${id}`, {
-        //     method: 'DELETE',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
+    
+        fetch(`${this.endpoint}/courses/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
     }
 }
