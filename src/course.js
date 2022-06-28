@@ -39,6 +39,7 @@ class Course {
         <p>Description: ${this.description}</p>
         <a href=${this.website} target="_blank">Visit Site</a>
         <br>
+        <button class="edit-btn" data-id=${this.id}">Edit</button>
         <button class="delete-btn" data-id=${this.id}">Delete</button>
        `
        return this.element
@@ -49,9 +50,13 @@ class Course {
     }
 
     handleClick = () => {
+        debugger
        if (event.target.innerText === "Delete") {
+           debugger
            this.element.remove()
            courseService.deleteCourse(this.id)
+       } else if (event.target.innerText === "Edit") {
+           debugger
        }
     }
 }

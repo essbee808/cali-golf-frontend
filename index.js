@@ -4,6 +4,7 @@ const destinationService = new DestinationService(base_url)
 const addCourseBtn = document.getElementById('btn-add-course')
 const addDestinationBtn = document.getElementById('btn-add-destination')
 
+
 addCourseBtn.addEventListener('click', () => {
     const form = Course.renderForm();
     // debugger
@@ -18,11 +19,11 @@ addDestinationBtn.addEventListener('click', () => {
     const form = Destination.renderForm();
 })
 
-// destinationService.getDestinations();
+destinationService.getDestinations();
 Destination.destinationForm.addEventListener('submit', handleDestinationSubmit)
 Course.courseForm.addEventListener('submit', handleCourseSubmit)
 
-// courseService.getCourses();
+courseService.getCourses();
 
 function handleDestinationSubmit() {
     event.preventDefault();

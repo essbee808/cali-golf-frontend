@@ -8,11 +8,11 @@ class Destination {
     constructor({id, name}){
         this.id = id
         this.name = name
-        debugger
-        this.element = document.createElement('h2')
+
+        this.element = document.createElement('h3')
         this.element.dataset.id = this.id
-        debugger
         this.element.id = `destination-${this.id}`
+        this.element.addEventListener('click', this.handleClick)
         Destination.all.push(this)
     }
 
@@ -26,16 +26,28 @@ class Destination {
     }
 
     destinationHTML() {
-        console.log(this)
+        debugger
         this.element.innerHTML += `
-            <a href="${base_url}/destinations/${this.id}">${this.id.name}</a>
-            <p>${this.id.courses.length} courses</p>
+            <h2>${this.name}</h2>
+            <p>Check it out!</p>
+            <button class="delete" data-id="${this.id}">Delete</button>
         `
         return this.element
     }
 
     slapOnDom() {
+        debugger
         Destination.destinationsContainer.append(this.destinationHTML())
+    }
+
+    handleClick() {
+        debugger
+        const d = parseInt(this.dataset.id)
+        if (event.target.innerHTML === 'Delete') {
+            debugger
+            this.remove();
+            destinationService.deleteDestination(d);
+        }
     }
 
 }

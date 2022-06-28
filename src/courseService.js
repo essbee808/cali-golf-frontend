@@ -41,9 +41,12 @@ class CourseService{
         })
     }
 
+    // Edit request
+
+
     // Delete
     deleteCourse(id) {
-    
+        debugger
         fetch(`${this.endpoint}/courses/${id}`, {
             method: 'DELETE',
             headers: {

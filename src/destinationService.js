@@ -16,15 +16,16 @@ class DestinationService {
             },
             body: JSON.stringify(destination)
         }
-        debugger
+ 
         fetch(`${this.endpoint}/destinations`, configObj)
         .then(resp => resp.json())
         .then(destination => {
-            debugger
+          
             const d = new Destination(destination)
             d.slapOnDom();
         })
     }
+
     getDestinations(){
         fetch(`${this.endpoint}/destinations`)
         .then(resp => resp.json())
@@ -34,5 +35,15 @@ class DestinationService {
                 d.slapOnDom();
             }
         })
-    }    
+    } 
+    
+    deleteDestination(id){
+        debugger
+        fetch(`${this.endpoint}/destinations/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    }
 }
