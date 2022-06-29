@@ -11,9 +11,9 @@ const viewCoursesBtn = document.getElementById('btn-view-courses')
 //     const form = Course.renderForm();
 // })
 
-// addDestinationBtn.addEventListener('click', () => {
-//     const form = Destination.renderForm();
-// })
+addDestinationBtn.addEventListener('click', () => {
+    const form = Destination.renderForm();
+})
 
 destinationService.getDestinations();
 

@@ -19,5 +19,23 @@ h1 {
     height: 150px;
   }
 
+  a {
+      color: white;
+  }
 
+#ball {
+    height: auto;
+    width: auto;
+    max-width: 80px;
+    max-height: 80px;
+    animation: rotation 4s infinite linear;
+}
 
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}

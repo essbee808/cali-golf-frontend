@@ -26,7 +26,6 @@ class Destination {
     }
 
     destinationHTML() {
-        debugger
         this.element.classList.add("rcorners1");
         this.element.innerHTML += `
             <h3>${this.name}</h3>
