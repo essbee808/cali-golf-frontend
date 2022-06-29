@@ -14,17 +14,6 @@ class DestinationService {
         })
     } 
 
-    getDestination(id){
-        console.log(id)
-        fetch(`${this.endpoint}/destinations/${id}`)
-        .then(resp => resp.json())
-        .then(result => {
-            debugger
-            console.log(result)
-          
-        })
-    }
-
     createDestination() {
       
         const destination = {

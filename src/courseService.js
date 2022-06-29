@@ -30,15 +30,19 @@ class CourseService{
     }
 
     // Read/Index
-    getCourses() {
-        fetch(`${this.endpoint}/courses`)
+    getCourses(event) {
+        const destinationId = parseInt(event.target.id)
+        debugger
+        
+        fetch(`${this.endpoint}/destinations/${destinationId}/courses`)
         .then(resp => resp.json())
         .then(courses => {
-            for (const course of courses) {
+            for (let course of courses) {
                 const c = new Course(course)
-                c.slapOnDom()
+                c.slapOnDom();
             }
         })
+       
     }
 
     // Edit request
@@ -46,7 +50,6 @@ class CourseService{
 
     // Delete
     deleteCourse(id) {
-        debugger
         fetch(`${this.endpoint}/courses/${id}`, {
             method: 'DELETE',
             headers: {

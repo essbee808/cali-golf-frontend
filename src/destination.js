@@ -30,7 +30,7 @@ class Destination {
         
         this.element.innerHTML += `
             <h3>${this.name}</h3>
-            <button class="view-btn" data-id=${this.id}>View Courses</button>
+            <button class="view-btn" data-id=${this.id} id="${this.id}">View Courses</button>
             <button class="delete" data-id="${this.id}">Delete</button>
         `
         return this.element
@@ -46,8 +46,7 @@ class Destination {
             this.remove();
             destinationService.deleteDestination(d);
         } else if (event.target.innerHTML === 'View Courses') {
-            debugger
-            destinationService.getDestination(d);
+            courseService.getCourses(event);
         }
     }
 

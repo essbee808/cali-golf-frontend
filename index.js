@@ -7,7 +7,7 @@ const addDestinationBtn = document.getElementById('btn-add-destination')
 
 addCourseBtn.addEventListener('click', () => {
     const form = Course.renderForm();
-    // debugger
+    debugger
     // if (form.style.display === 'none') {
     //     form.style.display = 'block';
     // } else {
