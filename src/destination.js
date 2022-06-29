@@ -51,6 +51,9 @@ class Destination {
             this.remove();
             destinationService.deleteDestination(d);
         } else if (event.target.innerHTML === 'View Courses') {
+            if (Course.coursesContainer.innerHTML != "") {
+                Course.coursesContainer.innerHTML = "";
+            }
             courseService.getCourses(event);
         } else if (event.target.innerHTML === 'Add Course') {
             Course.renderForm(d);
