@@ -9,7 +9,7 @@ class Destination {
         this.id = id
         this.name = name
 
-        this.element = document.createElement('h3')
+        this.element = document.createElement('div')
         this.element.dataset.id = this.id
         this.element.id = `destination-${this.id}`
         this.element.addEventListener('click', this.handleClick)
@@ -26,6 +26,8 @@ class Destination {
     }
 
     destinationHTML() {
+        debugger
+        this.element.classList.add("rcorners1");
         this.element.innerHTML += `
             <h3>${this.name}</h3>
             <button class='btn-add-course' data-id="${this.id}">Add Course</button>
