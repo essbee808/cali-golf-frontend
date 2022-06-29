@@ -17,7 +17,8 @@ class Destination {
     }
 
     static renderForm() {
-        Destination.destinationForm.innerHTML += `
+        Destination.destinationsContainer.innerHTML = "";
+        Destination.destinationForm.innerHTML = `
             <form id="new-destination-form">
                 Name: <input type="text" id="name"><br>
                 <input type="submit" id="create" value="Add">
@@ -52,7 +53,6 @@ class Destination {
         } else if (event.target.innerHTML === 'View Courses') {
             courseService.getCourses(event);
         } else if (event.target.innerHTML === 'Add Course') {
-            debugger
             Course.renderForm(d);
         }
     }

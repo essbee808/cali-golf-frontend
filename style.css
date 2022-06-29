@@ -1,13 +1,21 @@
 body {
     background: linear-gradient(lightblue, blue);
+    height: 1200px;
 }
 
 h1 {
     text-align: center;
 }
 
-#destinations-container {
-    text-align: center;
+.column {
+    float: left;
+    width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .rcorners1 {
@@ -28,7 +36,7 @@ h1 {
     width: auto;
     max-width: 80px;
     max-height: 80px;
-    animation: rotation 4s infinite linear;
+    animation: rotation 3s infinite linear;
 }
 
 @keyframes rotation {

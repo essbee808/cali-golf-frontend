@@ -4,7 +4,7 @@ const destinationService = new DestinationService(base_url)
 
 const addDestinationBtn = document.getElementById('btn-add-destination')
 const viewDestinationBtn = document.getElementById('btn-view-destinations')
-const viewCoursesBtn = document.getElementById('btn-view-courses')
+const viewCourses = document.getElementById('btn-view-courses')
 
 
 // addCourseBtn.addEventListener('click', () => {
@@ -30,4 +30,8 @@ function handleCourseSubmit() {
     event.preventDefault();
     courseService.createCourse();
     event.target.reset();
+}
+
+function clearDiv() {
+    debugger
 }
