@@ -10,7 +10,7 @@ class CourseService{
             address: document.getElementById('address').value,
             description: document.getElementById('description').value,
             website: document.getElementById('website').value,
-            destination_id: 1
+            destination_id: parseInt(document.getElementById('destination').value)
         }
         const configObj = {
             method: 'POST',
@@ -31,15 +31,17 @@ class CourseService{
 
     // Read/Index
     getCourses(event) {
-        const destinationId = parseInt(event.target.id)
-        debugger
-        
+        const destinationId = parseInt(event.target.id)        
         fetch(`${this.endpoint}/destinations/${destinationId}/courses`)
         .then(resp => resp.json())
         .then(courses => {
-            for (let course of courses) {
-                const c = new Course(course)
-                c.slapOnDom();
+            if (courses.length === 0) {
+                alert(`Aww, nothing here!`)
+            } else {
+                for (let course of courses) {
+                    const c = new Course(course)
+                    c.slapOnDom();
+                }
             }
         })
        

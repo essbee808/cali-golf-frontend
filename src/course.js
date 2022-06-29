@@ -20,13 +20,15 @@ class Course {
         Course.all.push(this)
     }
 
-    static renderForm() {
+    static renderForm(d) {
         Course.courseForm.innerHTML += `
+            <h2>Add a course</h2>
             <form id="new-course-form">
                 Name: <input type="text" id="name"><br>
                 Address: <input type="text" id="address"><br>
                 Description: <input type="text" id="description"><br>
                 Website: <input type="text" id="website"><br>
+                <input type="hidden" id="destination" value="${d}">
                 <input type="submit" id="create" value="Submit">
             </form>
         `
@@ -50,13 +52,9 @@ class Course {
     }
 
     handleClick = () => {
-        debugger
        if (event.target.innerText === "Delete") {
-           debugger
            this.element.remove()
            courseService.deleteCourse(this.id)
-       } else if (event.target.innerText === "Edit") {
-           debugger
        }
     }
 }
