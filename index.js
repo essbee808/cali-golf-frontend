@@ -3,11 +3,16 @@ const courseService = new CourseService(base_url)
 const destinationService = new DestinationService(base_url)
 const addCourseBtn = document.getElementById('btn-add-course')
 const addDestinationBtn = document.getElementById('btn-add-destination')
+const viewDestinationBtn = document.getElementById('btn-view-destinations')
+const viewCoursesBtn = document.getElementById('btn-view-courses')
 
+
+viewDestinationBtn.addEventListener('click', () => {
+    const destinations = destinationService.getDestinations();
+})
 
 addCourseBtn.addEventListener('click', () => {
     const form = Course.renderForm();
-    debugger
     // if (form.style.display === 'none') {
     //     form.style.display = 'block';
     // } else {
@@ -19,7 +24,7 @@ addDestinationBtn.addEventListener('click', () => {
     const form = Destination.renderForm();
 })
 
-destinationService.getDestinations();
+// destinationService.getDestinations();
 Destination.destinationForm.addEventListener('submit', handleDestinationSubmit)
 Course.courseForm.addEventListener('submit', handleCourseSubmit)
 
