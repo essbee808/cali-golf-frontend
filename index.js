@@ -23,8 +23,6 @@ destinationService.getDestinations();
 Destination.destinationForm.addEventListener('submit', handleDestinationSubmit)
 Course.courseForm.addEventListener('submit', handleCourseSubmit)
 
-courseService.getCourses();
-
 function handleDestinationSubmit() {
     event.preventDefault();
     destinationService.createDestination();

@@ -27,26 +27,27 @@ class Destination {
 
     destinationHTML() {
         debugger
+        
         this.element.innerHTML += `
-            <h2>${this.name}</h2>
-            <p>Check it out!</p>
+            <h3>${this.name}</h3>
+            <button class="view-btn" data-id=${this.id}>View Courses</button>
             <button class="delete" data-id="${this.id}">Delete</button>
         `
         return this.element
     }
 
     slapOnDom() {
-        debugger
         Destination.destinationsContainer.append(this.destinationHTML())
     }
 
     handleClick() {
-        debugger
         const d = parseInt(this.dataset.id)
         if (event.target.innerHTML === 'Delete') {
-            debugger
             this.remove();
             destinationService.deleteDestination(d);
+        } else if (event.target.innerHTML === 'View Courses') {
+            debugger
+            destinationService.getDestination(d);
         }
     }
 

@@ -3,6 +3,28 @@ class DestinationService {
         this.endpoint = endpoint
     }
 
+    getDestinations(){
+        fetch(`${this.endpoint}/destinations`)
+        .then(resp => resp.json())
+        .then(destinations => {
+            for (const destination of destinations) {
+                const d = new Destination(destination)
+                d.slapOnDom();
+            }
+        })
+    } 
+
+    getDestination(id){
+        console.log(id)
+        fetch(`${this.endpoint}/destinations/${id}`)
+        .then(resp => resp.json())
+        .then(result => {
+            debugger
+            console.log(result)
+          
+        })
+    }
+
     createDestination() {
       
         const destination = {
@@ -25,20 +47,8 @@ class DestinationService {
             d.slapOnDom();
         })
     }
-
-    getDestinations(){
-        fetch(`${this.endpoint}/destinations`)
-        .then(resp => resp.json())
-        .then(destinations => {
-            for (const destination of destinations) {
-                const d = new Destination(destination)
-                d.slapOnDom();
-            }
-        })
-    } 
     
     deleteDestination(id){
-        debugger
         fetch(`${this.endpoint}/destinations/${id}`, {
             method: 'DELETE',
             headers: {
