@@ -31,8 +31,9 @@ class CourseService{
 
     // Read/Index
     getCourses() {
-        Course.coursesContainer.innerHTML = "";
-        const destinationId = parseInt(event.target.id)        
+        // document.querySelector("main").inner
+        // Course.coursesContainer.innerHTML = "";
+        const destinationId = parseInt(event.target.id)     
         fetch(`${this.endpoint}/destinations/${destinationId}/courses`)
         .then(resp => resp.json())
         .then(courses => {
@@ -45,7 +46,6 @@ class CourseService{
                 }
             }
         })
-      
     }
 
     // Delete

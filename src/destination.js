@@ -9,7 +9,7 @@ class Destination {
         this.id = id
         this.name = name
 
-        this.element = document.createElement('div')
+        this.element = document.createElement('li')
         this.element.dataset.id = this.id
         this.element.id = `destination-${this.id}`
         this.element.addEventListener('click', this.handleClick)
@@ -28,13 +28,13 @@ class Destination {
     destinationHTML() {
         this.element.classList.add("rcorners1");
         this.element.innerHTML += `
-          <h3>${this.name}</h3>
-          <button class='btn-add-course' data-id="${this.id}">Add Course</button>
-          <br>
-          <br>
-          <button class="view-btn" data-id=${this.id} id="${this.id}">View Courses</button>
+          <h1 id="${this.id}">${this.name}</h1>
+          <button class='btn-add-course' data-id="${this.id}">+</button>
+
+          <button class="view-btn" data-id=${this.id} id="${this.id}">View</button>
           <button class="delete" data-id="${this.id}">Delete</button>
         `
+        
         return this.element
     }
 
@@ -42,16 +42,32 @@ class Destination {
         Destination.destinationsContainer.append(this.destinationHTML())
     }
 
+    // handleClick() {
+    //     debugger
+    //     let red = this.style.background
+    //     this.style.background = "purple";
+    //     const d = parseInt(this.dataset.id)
+        
+    // }
+
     handleClick() {
         // const d = parseInt(this.dataset.id)
         const d = parseInt(event.target.dataset.id)
-        if (event.target.innerHTML === 'Delete') {
+        if (event.target.innerText === 'Delete') {
             this.remove();
             destinationService.deleteDestination(d);
-        } else if (event.target.innerHTML === 'View Courses') {   
+        } else if (event.target.innerText === 'View') { 
+            event.target.innerText = 'Hide'
             courseService.getCourses();
-        } else if (event.target.innerHTML === 'Add Course') {
+        } else if (event.target.innerText === 'Hide') {
+            event.target.innerText = 'View'
+            Course.removeCourses();
+        } else if (event.target.innerText === '+') { 
+            event.target.innerText = '-'
             Course.renderForm(d);
+        } else if (event.target.innerText === '-') {
+            event.target.innerText = '+'
+            Course.removeForm(d);
         }
     }
 

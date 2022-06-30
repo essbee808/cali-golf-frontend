@@ -7,7 +7,7 @@ class DestinationService {
         fetch(`${this.endpoint}/destinations`)
         .then(resp => resp.json())
         .then(destinations => {
-            // document.documentElement
+        
             for (const destination of destinations) {
                 const d = new Destination(destination)
                 d.slapOnDom();

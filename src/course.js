@@ -2,7 +2,7 @@ class Course {
 
     static all = []
     static coursesContainer = document.getElementById("courses-container")
-    static courseForm = document.getElementById('course-form-container')
+    static courseForm = document.getElementById("course-form-container")
     
     constructor({id, name, address, description, website, destination_id}){
        
@@ -21,10 +21,9 @@ class Course {
     }
 
     static renderForm(d) {
-        // Course.coursesContainer = "";
         Course.courseForm.innerHTML += `
-            <h2>Add a course</h2>
             <form id="new-course-form">
+                <h2>Add A Course:</h2>
                 Name: <input type="text" id="name"><br>
                 Address: <input type="text" id="address"><br>
                 Description: <input type="text" id="description"><br>
@@ -35,8 +34,16 @@ class Course {
         `
     }
 
+    static removeForm() {
+        Course.courseForm.innerHTML = "";
+    }
+
+    static removeCourses() {
+        Course.coursesContainer.innerHTML = "";
+    }
+
+
     courseHTML() {
-       console.log(this)
        this.element.innerHTML += `
         <h2>${this.name}</h2>
         <p>Address: ${this.address}</p>
@@ -58,4 +65,6 @@ class Course {
            courseService.deleteCourse(this.id)
        }
     }
+
+    
 }
