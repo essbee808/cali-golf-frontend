@@ -21,7 +21,7 @@ class Course {
     }
 
     static renderForm(d) {
-        Course.coursesContainer = "";
+        // Course.coursesContainer = "";
         Course.courseForm.innerHTML += `
             <h2>Add a course</h2>
             <form id="new-course-form">
@@ -36,6 +36,7 @@ class Course {
     }
 
     courseHTML() {
+       console.log(this)
        this.element.innerHTML += `
         <h2>${this.name}</h2>
         <p>Address: ${this.address}</p>
@@ -46,11 +47,7 @@ class Course {
        `
        return this.element
     }
-
-    clearDiv() {
-        
-    }
-
+   
     slapOnDom() {
         Course.coursesContainer.append(this.courseHTML())
     }

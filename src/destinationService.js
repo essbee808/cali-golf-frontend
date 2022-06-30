@@ -16,7 +16,6 @@ class DestinationService {
     } 
 
     createDestination() {
-      
         const destination = {
             name: document.getElementById('name').value
         }

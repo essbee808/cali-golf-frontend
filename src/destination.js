@@ -17,10 +17,9 @@ class Destination {
     }
 
     static renderForm() {
-        Destination.destinationsContainer.innerHTML = "";
         Destination.destinationForm.innerHTML = `
             <form id="new-destination-form">
-                Name: <input type="text" id="name"><br>
+                Name: <input type="text" id="name">
                 <input type="submit" id="create" value="Add">
             </form>
         `
@@ -29,32 +28,28 @@ class Destination {
     destinationHTML() {
         this.element.classList.add("rcorners1");
         this.element.innerHTML += `
-            <h3>${this.name}</h3>
-            <button class='btn-add-course' data-id="${this.id}">Add Course</button>
-            <br>
-            <br>
-            <button class="view-btn" data-id=${this.id} id="${this.id}">View Courses</button>
-            <button class="delete" data-id="${this.id}">Delete</button>
-            
+          <h3>${this.name}</h3>
+          <button class='btn-add-course' data-id="${this.id}">Add Course</button>
+          <br>
+          <br>
+          <button class="view-btn" data-id=${this.id} id="${this.id}">View Courses</button>
+          <button class="delete" data-id="${this.id}">Delete</button>
         `
         return this.element
     }
 
     slapOnDom() {
-
         Destination.destinationsContainer.append(this.destinationHTML())
     }
 
     handleClick() {
-        const d = parseInt(this.dataset.id)
+        // const d = parseInt(this.dataset.id)
+        const d = parseInt(event.target.dataset.id)
         if (event.target.innerHTML === 'Delete') {
             this.remove();
             destinationService.deleteDestination(d);
-        } else if (event.target.innerHTML === 'View Courses') {
-            if (Course.coursesContainer.innerHTML != "") {
-                Course.coursesContainer.innerHTML = "";
-            }
-            courseService.getCourses(event);
+        } else if (event.target.innerHTML === 'View Courses') {   
+            courseService.getCourses();
         } else if (event.target.innerHTML === 'Add Course') {
             Course.renderForm(d);
         }
