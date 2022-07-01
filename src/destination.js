@@ -4,7 +4,6 @@ class Destination {
     static destinationsContainer = document.getElementById('destinations-container')
     static destinationForm = document.getElementById('destination-form-container')
 
-
     constructor({id, name}){
         this.id = id
         this.name = name
@@ -18,23 +17,34 @@ class Destination {
 
     static renderForm() {
         Destination.destinationForm.innerHTML = `
+            <br>
             <form id="new-destination-form">
-                Name: <input type="text" id="name">
-                <input type="submit" id="create" value="Add">
+                <strong>Add A Destination:</strong>
+                <br>
+                <input type="text" id="name">
+                <br>
+                <br>
+                <input type="submit" id="create" value="Submit">
             </form>
         `
     }
 
+    appendCourses() {
+        debugger
+    }
+
     destinationHTML() {
+     
         this.element.classList.add("rcorners1");
+        this.element.classList.add("content");
         this.element.innerHTML += `
           <h1 id="${this.id}">${this.name}</h1>
-          <button class='btn-add-course' data-id="${this.id}">+</button>
-
-          <button class="view-btn" data-id=${this.id} id="${this.id}">View</button>
-          <button class="delete" data-id="${this.id}">Delete</button>
+          <button class="delete" data-id="${this.id}" value="delete">Delete</button>
+          <br>
+          <button class="view-btn" data-id=${this.id} id="${this.id}" value="view">View</button>
+          <button class='btn-add-course' data-id="${this.id}" value="+">+</button>
+          <br>
         `
-        
         return this.element
     }
 
@@ -42,33 +52,22 @@ class Destination {
         Destination.destinationsContainer.append(this.destinationHTML())
     }
 
-    // handleClick() {
-    //     debugger
-    //     let red = this.style.background
-    //     this.style.background = "purple";
-    //     const d = parseInt(this.dataset.id)
-        
-    // }
-
+    // CURRENTLY WORKING
     handleClick() {
         // const d = parseInt(this.dataset.id)
         const d = parseInt(event.target.dataset.id)
-        if (event.target.innerText === 'Delete') {
+
+        if (event.target.value === 'delete') {
             this.remove();
             destinationService.deleteDestination(d);
-        } else if (event.target.innerText === 'View') { 
-            event.target.innerText = 'Hide'
-            courseService.getCourses();
-        } else if (event.target.innerText === 'Hide') {
-            event.target.innerText = 'View'
-            Course.removeCourses();
-        } else if (event.target.innerText === '+') { 
-            event.target.innerText = '-'
-            Course.renderForm(d);
-        } else if (event.target.innerText === '-') {
-            event.target.innerText = '+'
-            Course.removeForm(d);
-        }
-    }
 
+        } else if (event.target.value === 'view') { 
+            debugger
+            courseService.getCourses();
+
+        } else if (event.target.value === '+') { 
+            Course.renderForm(d);
+        }
+
+    }
 }

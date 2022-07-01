@@ -33,24 +33,20 @@ class Course {
             </form>
         `
     }
-
-    static removeForm() {
-        Course.courseForm.innerHTML = "";
+    static removeFromDOM() {
+        Course.coursesContainer = "";
     }
-
-    static removeCourses() {
-        Course.coursesContainer.innerHTML = "";
-    }
-
 
     courseHTML() {
        this.element.innerHTML += `
-        <h2>${this.name}</h2>
-        <p>Address: ${this.address}</p>
-        <p>Description: ${this.description}</p>
-        <a href=${this.website} target="_blank">Visit Site</a>
-        <br>
-        <button class="delete-btn" data-id=${this.id}">Delete</button>
+        <div class="box">
+            <h2>${this.name}</h2>
+            <p>Address: ${this.address}</p>
+            <p>Description: ${this.description}</p>
+            <a href=${this.website} target="_blank">Visit Site</a>
+            <br>
+            <button class="delete-btn" data-id=${this.id}">Delete</button>
+        </div>
        `
        return this.element
     }

@@ -31,17 +31,18 @@ class CourseService{
 
     // Read/Index
     getCourses() {
-        // document.querySelector("main").inner
-        // Course.coursesContainer.innerHTML = "";
+     
+        debugger
         const destinationId = parseInt(event.target.id)     
         fetch(`${this.endpoint}/destinations/${destinationId}/courses`)
         .then(resp => resp.json())
         .then(courses => {
-            if (courses.length === 0) {
-                alert(`Aww, nothing here!`)
+            if (courses.length < 1) {
+                alert(`No courses found. Add a course and help us grow!`)
             } else {
                 for (let course of courses) {
                     const c = new Course(course)
+    
                     c.slapOnDom();
                 }
             }
