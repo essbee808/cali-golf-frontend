@@ -69,6 +69,10 @@ class Destination {
 
     handleInfo() {
         debugger
+        if (event.target.value === 'view') {
+            main.innerHTML = '';
+            
+        }
         // if (event.target.innerText === 'Delete') {
         //     this.remove();
         //     destinationService.deleteDestination(d);
@@ -82,7 +86,6 @@ class Destination {
     }
 
     handleDelete() {
-        debugger
         const d = parseInt(this.dataset.id)
         if (event.target.value === 'delete') {
             this.remove();

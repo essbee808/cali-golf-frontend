@@ -2,7 +2,7 @@ const base_url = "http://127.0.0.1:3000"
 const courseService = new CourseService(base_url)
 const destinationService = new DestinationService(base_url)
 
-let main = document.getElementById('main')
+const main = document.getElementById('main')
 
 const addDestinationBtn = document.getElementById('btn-add-destination')
 // renderDestinations()

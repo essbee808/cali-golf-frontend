@@ -31,7 +31,6 @@ class CourseService{
 
     // Read/Index
     getCourses() {
-
         const destinationId = parseInt(event.target.dataset.id)     
         fetch(`${this.endpoint}/destinations/${destinationId}/courses`)
         .then(resp => resp.json())
