@@ -33,13 +33,10 @@ class Course {
             </form>
         `
     }
-    static removeFromDOM() {
-        Course.coursesContainer = "";
-    }
 
     courseHTML() {
        this.element.innerHTML += `
-        <div class="box">
+        <div id="box-${this.id}">
             <h2>${this.name}</h2>
             <p>Address: ${this.address}</p>
             <p>Description: ${this.description}</p>
@@ -50,9 +47,11 @@ class Course {
        `
        return this.element
     }
+
    
-    slapOnDom() {
+    appendDestinationToDom() {
         Course.coursesContainer.append(this.courseHTML())
+      
     }
 
     handleClick = () => {

@@ -31,9 +31,8 @@ class CourseService{
 
     // Read/Index
     getCourses() {
-     
-        debugger
-        const destinationId = parseInt(event.target.id)     
+
+        const destinationId = parseInt(event.target.dataset.id)     
         fetch(`${this.endpoint}/destinations/${destinationId}/courses`)
         .then(resp => resp.json())
         .then(courses => {
@@ -42,7 +41,7 @@ class CourseService{
             } else {
                 for (let course of courses) {
                     const c = new Course(course)
-    
+                
                     c.slapOnDom();
                 }
             }

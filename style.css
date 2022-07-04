@@ -1,3 +1,16 @@
+/* practice */
+#container {
+    background-color: lime;
+    width: 350px;
+    height: 150px;
+}
+
+#hidden-div {
+    display: none;
+    background-color: salmon;
+    color: white;
+}
+
 body {
     background: linear-gradient(lightblue, blue);
     height: 1200px;

@@ -2,13 +2,24 @@ const base_url = "http://127.0.0.1:3000"
 const courseService = new CourseService(base_url)
 const destinationService = new DestinationService(base_url)
 
-// const addCourseBtn = document.getElementById("btn-add-course")
-const addDestinationBtn = document.getElementById('btn-add-destination')
-// const viewDestinationBtn = document.getElementById('btn-view-destinations')
+let main = document.getElementById('main')
 
-// addCourseBtn.addEventListener('click', () => {
-//     const form = Course.renderForm();
-// })
+const addDestinationBtn = document.getElementById('btn-add-destination')
+// renderDestinations()
+
+
+
+
+
+
+
+
+
+
+
+// const addCourseBtn = document.getElementById("btn-add-course")
+
+// const viewDestinationBtn = document.getElementById('btn-view-destinations')
 
 Destination.renderForm();
 destinationService.getDestinations();
@@ -30,3 +41,11 @@ function handleCourseSubmit() {
     courseService.createCourse();
     event.target.reset();
 }
+
+
+// practice
+
+
+
+
+
