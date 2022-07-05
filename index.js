@@ -13,7 +13,6 @@ const ballImg = document.getElementById('ball')
 ballImg.addEventListener('click', handleBallClick)
 
 function handleBallClick() {
-    debugger
     Destination.destinationForm.innerHTML = " ";
     Destination.destinationsContainer.innerHTML = " ";
     Course.courseForm.innerHTML = " ";

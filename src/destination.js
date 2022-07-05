@@ -22,11 +22,8 @@ class Destination {
         Destination.destinationForm.innerHTML = `
             <br>
             <form id="new-destination-form">
-                <strong>Add A Destination:</strong>
-                <br>
+                <label for="name">New Destination:</label>
                 <input type="text" id="name">
-                <br>
-                <br>
                 <input type="submit" id="create" value="Submit">
             </form>
         `
@@ -53,7 +50,6 @@ class Destination {
     handleInfo() {
         const d = parseInt(this.dataset.id)
         if (event.target.value === 'view') {
-            debugger
             Destination.renderForm(d);
             destinationService.destinationInfo(d)
         }

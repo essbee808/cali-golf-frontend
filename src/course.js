@@ -4,6 +4,7 @@ class Course {
     static coursesContainer = document.getElementById("courses-container")
     static courseForm = document.getElementById("course-form-container")
     static coursesList = document.getElementById("courses-list")
+
     
     constructor({id, name, address, description, website, destination_id}){
        
@@ -39,7 +40,7 @@ class Course {
 
     courseHTML() {
        this.element.innerHTML += `
-            <div id="box-${this.id}">
+            <div class="course-info" id="box-${this.id}">
                 <h3>${this.name}</h3>
                 <p>Address: ${this.address}</p>
                 <p>Description: ${this.description}</p>

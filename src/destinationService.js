@@ -40,11 +40,11 @@ class DestinationService {
         fetch(`${this.endpoint}/destinations/${id}`)
         .then(resp => resp.json())
         .then(destination => {
-
             const destinationInfo = destination
             const courses = destinationInfo.courses
             Destination.destinationForm.innerHTML = " ";
             Destination.destinationsContainer.innerHTML = " ";
+
             Destination.destinationsContainer.innerHTML += `
                 <h1>${destinationInfo.name}</h1>
                 <h2>${courses.length} courses</h2>
