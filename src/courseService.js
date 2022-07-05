@@ -25,7 +25,7 @@ class CourseService{
         .then(resp => resp.json())
         .then(course => {
             const c = new Course(course)
-            c.slapOnDom();
+            c.appendCourseToDom();
         })
     }
 
@@ -40,8 +40,7 @@ class CourseService{
             } else {
                 for (let course of courses) {
                     const c = new Course(course)
-                
-                    c.slapOnDom();
+                    c.appendCourseToDom();
                 }
             }
         })

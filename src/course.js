@@ -22,7 +22,7 @@ class Course {
 
     static renderForm(d) {
         Course.courseForm.innerHTML += `
-            <form id="new-course-form">
+            <form class="column" id="new-course-form">
                 <h2>Add A Course:</h2>
                 Name: <input type="text" id="name"><br>
                 Address: <input type="text" id="address"><br>
@@ -36,22 +36,20 @@ class Course {
 
     courseHTML() {
        this.element.innerHTML += `
-        <div id="box-${this.id}">
-            <h2>${this.name}</h2>
-            <p>Address: ${this.address}</p>
-            <p>Description: ${this.description}</p>
-            <a href=${this.website} target="_blank">Visit Site</a>
-            <br>
-            <button class="delete-btn" data-id=${this.id}">Delete</button>
-        </div>
+            <div id="box-${this.id}">
+                <h3>${this.name}</h3>
+                <p>Address: ${this.address}</p>
+                <p>Description: ${this.description}</p>
+                <a href=${this.website} target="_blank">Visit Site</a>
+                <br>
+                <button class="delete-btn" data-id=${this.id}">Delete</button>
+            </div>
        `
        return this.element
     }
-
    
-    appendDestinationToDom() {
+    appendCourseToDom() {
         Course.coursesContainer.append(this.courseHTML())
-      
     }
 
     handleClick = () => {
