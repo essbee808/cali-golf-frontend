@@ -9,8 +9,18 @@ const addDestinationBtn = document.getElementById('btn-add-destination')
 
 const newCourseLink = document.getElementById('new-course-form')
 
+const ballImg = document.getElementById('ball')
+ballImg.addEventListener('click', handleBallClick)
 
-
+function handleBallClick() {
+    debugger
+    Destination.destinationForm.innerHTML = " ";
+    Destination.destinationsContainer.innerHTML = " ";
+    Course.courseForm.innerHTML = " ";
+    Course.coursesList.innerHTML = " ";
+    Destination.renderForm();
+    destinationService.getDestinations();
+}
 
 Destination.renderForm();
 destinationService.getDestinations();

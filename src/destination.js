@@ -39,18 +39,11 @@ class Destination {
         this.element.innerHTML += `
         <div id="destination-content-${this.id}">
             <h2 id="${this.id}">${this.name}</h2>
-            <button class="delete" data-id="${this.id}" value="delete">Delete</button>
-            <br>
             <button class="view-btn" data-id=${this.id} id="${this.id}" value="view">View</button>
-            <button class='btn-add-course' data-id="${this.id}" value="+">+</button>
             <br>
         </div>
         `
         return this.element
-    }
-
-    appendCoursesToDom() {
-        debugger
     }
 
     appendDestinationToDom() {
@@ -60,6 +53,8 @@ class Destination {
     handleInfo() {
         const d = parseInt(this.dataset.id)
         if (event.target.value === 'view') {
+            debugger
+            Destination.renderForm(d);
             destinationService.destinationInfo(d)
         }
       

@@ -3,6 +3,7 @@ class Course {
     static all = []
     static coursesContainer = document.getElementById("courses-container")
     static courseForm = document.getElementById("course-form-container")
+    static coursesList = document.getElementById("courses-list")
     
     constructor({id, name, address, description, website, destination_id}){
        
@@ -22,7 +23,8 @@ class Course {
 
     static renderForm(d) {
         Course.courseForm.innerHTML += `
-            <form class="column" id="new-course-form">
+        <div class="column" id="new-course-form">
+            <form>
                 <h2>Add A Course:</h2>
                 Name: <input type="text" id="name"><br>
                 Address: <input type="text" id="address"><br>
@@ -31,6 +33,7 @@ class Course {
                 <input type="hidden" id="destination" value="${d}">
                 <input type="submit" id="create" value="Submit">
             </form>
+        </div>
         `
     }
 
@@ -49,7 +52,7 @@ class Course {
     }
    
     appendCourseToDom() {
-        Course.coursesContainer.append(this.courseHTML())
+        Course.coursesList.append(this.courseHTML())
     }
 
     handleClick = () => {
