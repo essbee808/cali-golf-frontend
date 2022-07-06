@@ -17,7 +17,6 @@ class Destination {
         this.element.id = `destination-${this.id}`
         this.element.addEventListener('click', this.handleInfo)
         this.element.addEventListener('click', this.handleDelete)
-        // this.element.addEventListener('click', this.handleClick)
 
         Destination.all.push(this)
     }
@@ -43,23 +42,13 @@ class Destination {
                 <button class="ghost-button" data-id=${this.id}">Remove</button>
             </div>
         </div>
-        `
-        // <button class="delete-btn" data-id=${this.id} id="${this.id}" value="delete">Delete</button>
-
-        
+        ` 
         return this.element
     }
 
     appendDestinationToDom() {
         Destination.destinationsContainer.append(this.destinationHTML())
     }
-
-    // handleClick () {
-    //     const d = parseInt(this.dataset.id)
-    //     if (event.target.classList.value === 'learn') {
-
-    //     } else if (event.target.classList.value === 'ghost-button' && isExecuted === true)
-    // }
 
     handleInfo() {
         const d = parseInt(this.dataset.id)
@@ -70,14 +59,11 @@ class Destination {
     }
 
     handleDelete() {
-        
         const d = parseInt(this.dataset.id)
-        
         if (event.target.classList.value === 'ghost-button') {
 
             let isExecuted = confirm("Are you sure you want to delete?");
             if (isExecuted === true) {
-       
                 this.remove();
                 destinationService.deleteDestination(d);
             }    

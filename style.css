@@ -158,22 +158,13 @@ input {
 input[type=submit] {
     padding: 0 1rem;
     margin-bottom: 1.5rem;
-    min-width: 10rem;
+    min-width: 8rem;
     display: block;
     height: 3rem;
     border: 1.5px solid black;
     background: rgb(101, 53, 202);
     color: white;
 }
-
-/* input[type=text] {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 1px solid #555;
-    outline: none;
-  } */
 
 input[type=text]:focus {
     outline: 3px solid rgb(137, 50, 237);
@@ -183,10 +174,6 @@ form {
     height: 110px;
     padding: 50px;
 }
-
-/* #new-destination-form {
-    background: pink;
-} */
 
 #new-course-form {
     border-color: black;

@@ -58,13 +58,6 @@ class Course {
         Course.coursesList.append(this.courseHTML())
     }
 
-    // handleClick = () => {
-    //    if (event.target.innerText === "Remove") {
-    //        this.element.remove()
-    //        courseService.deleteCourse(this.id)
-    //    }
-    // }
-
     handleDelete() {
         const d = parseInt(this.dataset.id)
         if (event.target.innerText === 'Remove') {

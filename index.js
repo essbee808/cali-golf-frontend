@@ -37,14 +37,3 @@ function handleCourseSubmit() {
     courseService.createCourse();
     event.target.reset();
 }
-
-
-// Practice
-
-
-{/* <div id="destination-content-${this.id}">
-<h2 data-id=${this.id} class="view">${this.name}</h2>
-
-<button class="delete-btn" data-id=${this.id} id="${this.id}" value="delete">Delete</button>
-<br>
-</div> */}
