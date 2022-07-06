@@ -24,7 +24,7 @@ class Course {
 
     static renderForm(d) {
         Course.courseForm.innerHTML += `
-        <div class="column" id="new-course-form">
+        <div id="new-course-form">
             <form>
                 <h2>Add A Course:</h2>
                 Name: <input type="text" id="name"><br>
@@ -40,7 +40,7 @@ class Course {
 
     courseHTML() {
        this.element.innerHTML += `
-            <div class="course-info" id="box-${this.id}">
+            <div id="box-${this.id}">
                 <h3>${this.name}</h3>
                 <p>Address: ${this.address}</p>
                 <p>Description: ${this.description}</p>
