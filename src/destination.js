@@ -75,10 +75,10 @@ class Destination {
         const d = parseInt(this.dataset.id)
         
         if (event.target.classList.value === 'ghost-button') {
-            debugger
-            let isExecuted = confirm("Are you sure you want to delete this?");
+
+            let isExecuted = confirm("Are you sure you want to delete?");
             if (isExecuted === true) {
-                debugger
+       
                 this.remove();
                 destinationService.deleteDestination(d);
             }    

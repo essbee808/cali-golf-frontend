@@ -18,7 +18,7 @@ class Course {
         this.element = document.createElement('li')
         this.element.dataset.id = this.id 
         this.element.id = `course-${this.id}`
-        this.element.addEventListener('click', this.handleClick)
+        this.element.addEventListener('click', this.handleDelete)
         Course.all.push(this)
     }
 
@@ -58,11 +58,22 @@ class Course {
         Course.coursesList.append(this.courseHTML())
     }
 
-    handleClick = () => {
-       if (event.target.innerText === "Remove") {
-           this.element.remove()
-           courseService.deleteCourse(this.id)
-       }
+    // handleClick = () => {
+    //    if (event.target.innerText === "Remove") {
+    //        this.element.remove()
+    //        courseService.deleteCourse(this.id)
+    //    }
+    // }
+
+    handleDelete() {
+        const d = parseInt(this.dataset.id)
+        if (event.target.innerText === 'Remove') {
+            let isExecuted = confirm("Are you sure you want to delete?");
+            if (isExecuted === true) {
+                this.remove();
+                courseService.deleteCourse(d)
+            }    
+        }
     }
 
     
