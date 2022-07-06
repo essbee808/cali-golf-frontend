@@ -36,12 +36,12 @@ class Destination {
         this.element.innerHTML += `
         <div id="destination-content-${this.id}">
             <h2 data-id=${this.id} class="view">${this.name}</h2>
-            
+            <button class="delete-btn" data-id=${this.id} id="${this.id}" value="delete">Delete</button>
             <br>
         </div>
         `
-        // <button class="view-btn" data-id=${this.id} id="${this.id}" value="view">View</button>
-        //     <button class="delete-btn" data-id=${this.id} id="${this.id}" value="delete">Delete</button>
+
+        
         return this.element
     }
 
@@ -61,8 +61,9 @@ class Destination {
     }
 
     handleDelete() {
-        const d = parseInt(this.dataset.id)
-        if (event.target.classList.value === 'delete') {
+        let isExecuted = confirm("Are you sure you want to delete this?");
+        if (isExecuted) {
+            const d = parseInt(this.dataset.id)
             this.remove();
             destinationService.deleteDestination(d);
         }

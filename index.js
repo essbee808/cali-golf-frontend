@@ -5,9 +5,6 @@ const destinationService = new DestinationService(base_url)
 const main = document.getElementById('main')
 
 const addDestinationBtn = document.getElementById('btn-add-destination')
-// renderDestinations()
-
-const newCourseLink = document.getElementById('new-course-form')
 
 const ballImg = document.getElementById('ball')
 ballImg.addEventListener('click', handleBallClick)
