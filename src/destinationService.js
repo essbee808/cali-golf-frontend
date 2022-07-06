@@ -7,7 +7,6 @@ class DestinationService {
         fetch(`${this.endpoint}/destinations`)
         .then(resp => resp.json())
         .then(destinations => {
-            
             for (const destination of destinations) {
                 const d = new Destination(destination)
                 d.appendDestinationToDom();
@@ -42,12 +41,15 @@ class DestinationService {
         .then(destination => {
             const destinationInfo = destination
             const courses = destinationInfo.courses
+
             Destination.destinationForm.innerHTML = " ";
             Destination.destinationsContainer.innerHTML = " ";
-            Destination.destinationHeading.innerHTML += `
-                <h1>${destinationInfo.name} <button class="delete-btn ghost-button-destination" data-id=${destinationInfo.id}">Delete</button></h1>
-                
+ 
+            Destination.destinationHeading.innerHTML += 
             `
+                <h1>${destinationInfo.name}</h1>
+            ` 
+                  
             Course.renderForm(destinationInfo.id)
 
             for (const course of courses) {

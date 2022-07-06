@@ -4,7 +4,9 @@ class Destination {
 
     static destinationForm = document.getElementById('destination-form-container')
     static destinationsContainer = document.getElementById('destinations-container')
-    static destinationHeading = document.getElementById('destination-heading')
+    static deleteBtn = document.getElementById('delete')
+    static destinationHeading = document.getElementById('destination-heading');
+    static hiddenDiv = document.getElementById('hidden-div')
 
     constructor({id, name}){
         this.id = id
@@ -15,6 +17,7 @@ class Destination {
         this.element.id = `destination-${this.id}`
         this.element.addEventListener('click', this.handleInfo)
         this.element.addEventListener('click', this.handleDelete)
+        // this.element.addEventListener('click', this.handleClick)
 
         Destination.all.push(this)
     }
@@ -34,12 +37,15 @@ class Destination {
         this.element.classList.add("content");
         
         this.element.innerHTML += `
-        <div id="destination-content-${this.id}">
-            <h2 data-id=${this.id} class="view">${this.name}</h2>
-            <button class="delete-btn" data-id=${this.id} id="${this.id}" value="delete">Delete</button>
-            <br>
+        <div class="item" id="destination-content-${this.id}">
+            <h3><a class="learn" id="${this.id}" href="#">${this.name}</a></h3>
+
+            <div class="delete-btn">
+                <button class="ghost-button" data-id=${this.id}">Remove</button>
+            </div>
         </div>
         `
+        // <button class="delete-btn" data-id=${this.id} id="${this.id}" value="delete">Delete</button>
 
         
         return this.element
@@ -49,24 +55,35 @@ class Destination {
         Destination.destinationsContainer.append(this.destinationHTML())
     }
 
-    handleInfo() {
+    // handleClick () {
+    //     const d = parseInt(this.dataset.id)
+    //     if (event.target.classList.value === 'learn') {
 
+    //     } else if (event.target.classList.value === 'ghost-button' && isExecuted === true)
+    // }
+
+    handleInfo() {
         const d = parseInt(this.dataset.id)
-        if (event.target.classList.value === 'view') {
-         
+        if (event.target.classList.value === 'learn') {
             Destination.renderForm(d);
             destinationService.destinationInfo(d)
         }
-      
     }
 
     handleDelete() {
-        let isExecuted = confirm("Are you sure you want to delete this?");
-        if (isExecuted) {
-            const d = parseInt(this.dataset.id)
-            this.remove();
-            destinationService.deleteDestination(d);
+        
+        const d = parseInt(this.dataset.id)
+        
+        if (event.target.classList.value === 'ghost-button') {
+            debugger
+            let isExecuted = confirm("Are you sure you want to delete this?");
+            if (isExecuted === true) {
+                debugger
+                this.remove();
+                destinationService.deleteDestination(d);
+            }    
         }
+      
     }
 
   

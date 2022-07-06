@@ -41,11 +41,14 @@ class Course {
     courseHTML() {
        this.element.innerHTML += `
             <div class="course-info" id="box-${this.id}">
-                <h3><strong>${this.name}   <button class="delete-btn ghost-button" data-id=${this.id}">Delete</button></strong></h3>
+                <h3><a href=${this.website} target="_blank"><strong>${this.name}</strong></a></h3>
+                
                 <p><strong>Address:</strong> ${this.address}</p>
                 <p><strong>Description:</strong> ${this.description}</p>
-                <a href=${this.website} target="_blank">Learn More</a>
-                <br>
+                <div class="delete-btn">
+                    <button class="ghost-button" data-id=${this.id}">Remove</button>
+                </div>
+                
             </div>
        `
        return this.element
@@ -56,7 +59,7 @@ class Course {
     }
 
     handleClick = () => {
-       if (event.target.innerText === "Delete") {
+       if (event.target.innerText === "Remove") {
            this.element.remove()
            courseService.deleteCourse(this.id)
        }

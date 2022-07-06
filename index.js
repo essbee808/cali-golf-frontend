@@ -4,7 +4,6 @@ const destinationService = new DestinationService(base_url)
 
 const main = document.getElementById('main')
 
-const addDestinationBtn = document.getElementById('btn-add-destination')
 
 const ballImg = document.getElementById('ball')
 ballImg.addEventListener('click', handleBallClick)
@@ -17,9 +16,6 @@ function handleBallClick() {
     Destination.destinationHeading.innerHTML = " ";
     Destination.renderForm();
     destinationService.getDestinations();
-
-    // Destination.renderForm();
-    // destinationService.getDestinations();
 }
 
 Destination.renderForm();
@@ -43,5 +39,12 @@ function handleCourseSubmit() {
 }
 
 
+// Practice
 
 
+{/* <div id="destination-content-${this.id}">
+<h2 data-id=${this.id} class="view">${this.name}</h2>
+
+<button class="delete-btn" data-id=${this.id} id="${this.id}" value="delete">Delete</button>
+<br>
+</div> */}
