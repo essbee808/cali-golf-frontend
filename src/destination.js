@@ -25,7 +25,6 @@ class Destination {
     static renderForm() {
         Destination.destinationForm.innerHTML = `
             <form id="new-destination-form">
-                <label for="name">New Destination:</label>
                 <input type="text" id="name" placeholder="Add a destination here">
                 <input type="submit" id="create" value="Submit">
             </form>

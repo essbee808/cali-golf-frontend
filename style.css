@@ -115,9 +115,9 @@ li {
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    gap: 10%;
     grid-auto-rows: 100px;
-    grid-gap: 40px 40px;
+    grid-gap: 40% 10%;
 }
 
 .item {
@@ -128,8 +128,8 @@ li {
     text-align: center;
     border-radius: 40px;
     background: white;
-    width: 210px;
-    height: 130px;
+    width: 100%;
+    height: 140%;
   }
 
 #rcorners {
@@ -141,27 +141,62 @@ li {
   }
 
 input {
-    height: 10%;
+    /* height: 40%;
     width: 50%;
     display: block;
     margin: 0 auto;
-    border-radius: 25px;
+    border-radius: 25px; */
+    margin-bottom: 1.5rem;
+    border: none;
+    height: 3rem;
+    border-radius: 4px;
+    min-width: 20rem;
+    display: block;
+    padding: 0 1rem;
 }
 
 input[type=submit] {
-    width: 10%;
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+    min-width: 10rem;
+    display: block;
+    height: 3rem;
     border: 1.5px solid black;
-    background: white;
+    background: rgb(101, 53, 202);
+    color: white;
 }
 
-input[type=text] {
+/* input[type=text] {
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 1px solid #555;
     outline: none;
-  }
+  } */
+
+input[type=text]:focus {
+    outline: 3px solid rgb(137, 50, 237);
+}
+
+form {
+    height: 110px;
+    padding: 50px;
+}
+
+/* #new-destination-form {
+    background: pink;
+} */
+
+#new-course-form {
+    border-color: black;
+    background: rgb(238, 236, 236);
+    height: auto;
+    width: auto;
+    border-radius: 40px;
+    padding: 1em;
+    margin: 30px;
+}
 
 .ghost-button {
     color: gray;

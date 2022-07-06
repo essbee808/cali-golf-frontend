@@ -24,13 +24,13 @@ class Course {
 
     static renderForm(d) {
         Course.courseForm.innerHTML += `
-        <div id="new-course-form">
-            <form>
+        <div>
+            <form id="new-course-form">
                 <h2>Add A Course:</h2>
-                Name: <input type="text" id="name"><br>
-                Address: <input type="text" id="address"><br>
-                Description: <input type="text" id="description"><br>
-                Website: <input type="text" id="website"><br>
+                <input type="text" id="name" placeholder="Name"><br>
+                <input type="text" id="address" placeholder="Address"><br>
+                <input type="text" id="description" placeholder="Description"><br>
+                <input type="text" id="website" placeholder="Website"><br>
                 <input type="hidden" id="destination" value="${d}">
                 <input type="submit" id="create" value="Submit">
             </form>
