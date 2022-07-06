@@ -17,8 +17,12 @@ function handleBallClick() {
     Destination.destinationsContainer.innerHTML = " ";
     Course.courseForm.innerHTML = " ";
     Course.coursesList.innerHTML = " ";
+    Destination.destinationHeading.innerHTML = " ";
     Destination.renderForm();
     destinationService.getDestinations();
+
+    // Destination.renderForm();
+    // destinationService.getDestinations();
 }
 
 Destination.renderForm();

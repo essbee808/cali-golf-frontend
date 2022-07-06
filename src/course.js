@@ -40,13 +40,12 @@ class Course {
 
     courseHTML() {
        this.element.innerHTML += `
-            <div id="box-${this.id}">
-                <h3>${this.name}</h3>
-                <p>Address: ${this.address}</p>
-                <p>Description: ${this.description}</p>
+            <div class="course-info" id="box-${this.id}">
+                <h3><strong>${this.name} <button class="delete-btn" data-id=${this.id}">Delete</button></strong></h3>
+                <p><strong>Address:</strong> ${this.address}</p>
+                <p><strong>Description:</strong> ${this.description}</p>
                 <a href=${this.website} target="_blank">Visit Site</a>
                 <br>
-                <button class="delete-btn" data-id=${this.id}">Delete</button>
             </div>
        `
        return this.element

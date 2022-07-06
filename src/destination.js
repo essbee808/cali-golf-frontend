@@ -4,6 +4,7 @@ class Destination {
 
     static destinationForm = document.getElementById('destination-form-container')
     static destinationsContainer = document.getElementById('destinations-container')
+    static destinationHeading = document.getElementById('destination-heading')
 
     constructor({id, name}){
         this.id = id
@@ -20,21 +21,11 @@ class Destination {
 
     static renderForm() {
         Destination.destinationForm.innerHTML = `
-       
             <form id="new-destination-form">
                 <label for="name">New Destination:</label>
-                <input type="text" id="name">
+                <input type="text" id="name" placeholder="Add a destination here">
                 <input type="submit" id="create" value="Submit">
             </form>
-        `
-    }
-
-    renderDestinationHeading() {
-
-        Destination.destinationsContainer.innerHTML += `
-        <h1>${destinationInfo.name}</h1>
-        <h2>${courses.length} courses</h2>
-        <a href="javascript:Course.renderForm(${destinationInfo.id})" id="new-course-form">New Course</a>
         `
     }
 

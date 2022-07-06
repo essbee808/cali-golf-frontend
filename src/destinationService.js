@@ -44,11 +44,12 @@ class DestinationService {
             const courses = destinationInfo.courses
             Destination.destinationForm.innerHTML = " ";
             Destination.destinationsContainer.innerHTML = " ";
-            Destination.destinationsContainer.innerHTML += `
- 
-                <h1>${destinationInfo.name}</h1>
-                <a href="javascript:Course.renderForm(${destinationInfo.id})" id="new-course-form">New Course</a>
+            Destination.destinationHeading.innerHTML += `
+                <h1>${destinationInfo.name} <button class="delete-btn" data-id=${destinationInfo.id}">Delete</button></h1>
+                
             `
+            Course.renderForm(destinationInfo.id)
+
             for (const course of courses) {
                 const c = new Course(course)
                 c.appendCourseToDom();
