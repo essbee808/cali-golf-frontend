@@ -45,7 +45,7 @@ class DestinationService {
             Destination.destinationForm.innerHTML = " ";
             Destination.destinationsContainer.innerHTML = " ";
             Destination.destinationHeading.innerHTML += `
-                <h1>${destinationInfo.name} <button class="delete-btn" data-id=${destinationInfo.id}">Delete</button></h1>
+                <h1>${destinationInfo.name} <button class="delete-btn ghost-button" data-id=${destinationInfo.id}">Delete</button></h1>
                 
             `
             Course.renderForm(destinationInfo.id)

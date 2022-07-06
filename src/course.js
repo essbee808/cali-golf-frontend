@@ -41,10 +41,10 @@ class Course {
     courseHTML() {
        this.element.innerHTML += `
             <div class="course-info" id="box-${this.id}">
-                <h3><strong>${this.name} <button class="delete-btn" data-id=${this.id}">Delete</button></strong></h3>
+                <h3><strong>${this.name}   <button class="delete-btn ghost-button" data-id=${this.id}">Delete</button></strong></h3>
                 <p><strong>Address:</strong> ${this.address}</p>
                 <p><strong>Description:</strong> ${this.description}</p>
-                <a href=${this.website} target="_blank">Visit Site</a>
+                <a href=${this.website} target="_blank">Learn More</a>
                 <br>
             </div>
        `
