@@ -2,24 +2,33 @@ const base_url = "http://127.0.0.1:3000"
 const courseService = new CourseService(base_url)
 const destinationService = new DestinationService(base_url)
 
-const main = document.getElementById('main')
+const searchFormContainer = document.getElementById('search')
+renderSearchForm();
+searchFormContainer.addEventListener('submit', handleSearchSubmit)
 
+const main = document.getElementById('main')
 
 const ballImg = document.getElementById('ball')
 ballImg.addEventListener('click', handleBallClick)
 
 function handleBallClick() {
-    Destination.destinationForm.innerHTML = " ";
-    Destination.destinationsContainer.innerHTML = " ";
+    Destination.destinationHeading.innerHTML = " ";
     Course.courseForm.innerHTML = " ";
     Course.coursesList.innerHTML = " ";
-    Destination.destinationHeading.innerHTML = " ";
-    Destination.renderForm();
-    destinationService.getDestinations();
+    if (searchFormContainer.innerText === "") {
+        renderSearchForm();
+        destinationService.getDestinations();
+    } 
+    
+    // Destination.destinationForm.innerHTML = " ";
+    // Destination.destinationsContainer.innerHTML = " ";
+   
+    
+    // destinationService.getDestinations();
 }
 
-Destination.renderForm();
-destinationService.getDestinations();
+// Destination.renderForm();
+// destinationService.getDestinations();
 
 // form event listeners
 Destination.destinationForm.addEventListener('submit', handleDestinationSubmit)
@@ -37,3 +46,32 @@ function handleCourseSubmit() {
     courseService.createCourse();
     event.target.reset();
 }
+
+
+// PRACTICE
+
+// 1. render search on load 
+// 2. add event listener for click event 
+// 3. handle form submission and get value
+// 4. run filter method
+
+function renderSearchForm() {
+    searchFormContainer.innerHTML += `
+        <form>
+            <label>Search for a destination: </label>
+            <input type="text" id="searchQuery"></input>
+            <input type="submit" id="create" value="Search">
+        </form>
+    `
+}
+
+function handleSearchSubmit() {
+    event.preventDefault();
+    destinationService.search();
+    event.target.reset();
+}
+
+
+
+
+

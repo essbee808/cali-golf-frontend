@@ -5,7 +5,6 @@ class Course {
     static courseForm = document.getElementById("course-form-container")
     static coursesList = document.getElementById("courses-list")
 
-    
     constructor({id, name, address, description, website, destination_id}){
        
         this.id = id
@@ -61,7 +60,7 @@ class Course {
     handleDelete() {
         const d = parseInt(this.dataset.id)
         if (event.target.innerText === 'Remove') {
-            let isExecuted = confirm("Are you sure you want to delete?");
+            const isExecuted = confirm("Are you sure you want to delete?");
             if (isExecuted === true) {
                 this.remove();
                 courseService.deleteCourse(d)

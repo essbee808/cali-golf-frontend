@@ -6,7 +6,6 @@ class Destination {
     static destinationsContainer = document.getElementById('destinations-container')
     static deleteBtn = document.getElementById('delete')
     static destinationHeading = document.getElementById('destination-heading');
-    static hiddenDiv = document.getElementById('hidden-div')
 
     constructor({id, name}){
         this.id = id
@@ -17,6 +16,7 @@ class Destination {
         this.element.id = `destination-${this.id}`
         this.element.addEventListener('click', this.handleInfo)
         this.element.addEventListener('click', this.handleDelete)
+        this.element.addEventListener('click', this.handleEdit)
 
         Destination.all.push(this)
     }
@@ -33,10 +33,9 @@ class Destination {
     destinationHTML() {
         this.element.classList.add("rcorners");
         this.element.classList.add("content");
-        
         this.element.innerHTML += `
         <div class="item" id="destination-content-${this.id}">
-            <h3><a class="learn" id="${this.id}" href="#">${this.name}</a></h3>
+            <h3><a class="info" id="${this.id}" href="#">${this.name}</a></h3>
 
             <div class="delete-btn">
                 <button class="ghost-button" data-id=${this.id}">Remove</button>
@@ -51,25 +50,26 @@ class Destination {
     }
 
     handleInfo() {
+        searchFormContainer.innerHTML ="";
         const d = parseInt(this.dataset.id)
-        if (event.target.classList.value === 'learn') {
+        if (event.target.classList.value === 'info') {
             Destination.renderForm(d);
             destinationService.destinationInfo(d)
         }
     }
 
     handleDelete() {
-        const d = parseInt(this.dataset.id)
-        if (event.target.classList.value === 'ghost-button') {
+        const datasetId = parseInt(this.dataset.id)
+ 
+        if (event.target.innerText === 'Remove') {
 
-            let isExecuted = confirm("Are you sure you want to delete?");
+            const isExecuted = confirm("Are you sure you want to delete?");
             if (isExecuted === true) {
                 this.remove();
-                destinationService.deleteDestination(d);
+                destinationService.deleteDestination(datasetId);
             }    
         }
       
     }
 
-  
 }
