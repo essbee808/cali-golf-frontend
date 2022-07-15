@@ -8,31 +8,13 @@ class DestinationService {
         fetch(`${this.endpoint}/destinations`)
         .then(resp => resp.json())
         .then(destinations => {
+        
             for (let destination of destinations) {
                 const d = new Destination(destination)
                 d.appendDestinationToDom();
             }
             })
         }
-        
-        //     let destinations = data;
-
-        //     destinations.map(function(destination) {
-       
-                // let li = document.createElement('li');
-                // let name = document.createElement('h2');
-                // let removeButton = document.createElement('button');
-                // // removeButton.id = `${this}`
-                
-                // name.innerHTML = `${destination.name}`;
-                // removeButton.innerText = "Remove";
-                // removeButton.id = `${destination.id}`
-
-                // li.appendChild(name);
-                // li.appendChild(removeButton);
-                // Destination.destinationsContainer.appendChild(li)
-        //     });
-        // })
     
     search() {
         const query = {
@@ -48,18 +30,15 @@ class DestinationService {
 
             Destination.destinationsContainer.innerHTML = "";
 
-            if (results.length < 1) {
-                let message = document.createElement('h2');
-                message.innerHTML = `No results found. Try another search or <a href="#" onClick="Destination.renderForm()">create a new destination.</a>`
-                Destination.destinationsContainer.appendChild(message)
-
+            if (results.length === 0) {
+                let message = '<p>No results found. Try another search.';
+                Destination.destinationsContainer.insertAdjacentHTML("afterbegin", message)
             } else {
                 for (const result of results) {
                     const d = new Destination(result)
                     d.appendDestinationToDom();
-            }
-              
-            }
+                }
+             }
         })
     }
 
@@ -79,26 +58,26 @@ class DestinationService {
         fetch(`${this.endpoint}/destinations`, configObj)
         .then(resp => resp.json())
         .then(destination => {
+            debugger
             const d = new Destination(destination)
-            d.appendDestinationToDom();
-            
+            destinationService.destinationInfo(d.id)
         })
     }
 
     destinationInfo(id) {
+
         fetch(`${this.endpoint}/destinations/${id}`)
         .then(resp => resp.json())
         .then(destination => {
+      
             const destinationInfo = destination
             const courses = destinationInfo.courses
-
-            Destination.destinationForm.innerHTML = " ";
-            Destination.destinationsContainer.innerHTML = " ";
- 
-            Destination.destinationHeading.innerHTML += 
+      
+            Destination.destinationsContainer.innerHTML = "";
+            let destinationHTML = `
+                <h1 class="insert-name">${destinationInfo.name}</h1>
             `
-                <h1>${destinationInfo.name}</h1>
-            ` 
+            Destination.destinationHeading.insertAdjacentHTML("afterbegin", destinationHTML)
             Course.renderForm(destinationInfo.id)
             for (const course of courses) {
                 const c = new Course(course)
@@ -108,6 +87,7 @@ class DestinationService {
     }
     
     deleteDestination(id){
+        renderSearchForm();
         fetch(`${this.endpoint}/destinations/${id}`, {
             method: 'DELETE',
             headers: {

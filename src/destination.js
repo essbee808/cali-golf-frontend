@@ -22,26 +22,30 @@ class Destination {
     }
 
     static renderForm() {
-        Destination.destinationForm.innerHTML = `
-            <form id="new-destination-form">
-                <input type="text" id="name" placeholder="Add a destination here">
-                <input type="submit" id="create" value="Submit">
-            </form>
+        let html = `
+        <form id="new-destination-form">
+            <input type="text" id="name" placeholder="Add a destination here">
+            <input type="submit" id="create" value="Submit">
+        </form>
         `
+        Destination.destinationForm.insertAdjacentHTML("afterbegin", html)
+    
     }
 
     destinationHTML() {
+
         this.element.classList.add("rcorners");
         this.element.classList.add("content");
-        this.element.innerHTML += `
-        <div class="item" id="destination-content-${this.id}">
+        let html = `
+            <div class="item" id="destination-content-${this.id}">
             <h3><a class="info" id="${this.id}" href="#">${this.name}</a></h3>
 
             <div class="delete-btn">
                 <button class="ghost-button" data-id=${this.id}">Remove</button>
             </div>
-        </div>
-        ` 
+            </div>
+            ` 
+        this.element.insertAdjacentHTML("afterbegin", html)
         return this.element
     }
 
@@ -53,7 +57,6 @@ class Destination {
         searchFormContainer.innerHTML ="";
         const d = parseInt(this.dataset.id)
         if (event.target.classList.value === 'info') {
-            Destination.renderForm(d);
             destinationService.destinationInfo(d)
         }
     }

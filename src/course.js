@@ -22,7 +22,7 @@ class Course {
     }
 
     static renderForm(d) {
-        Course.courseForm.innerHTML += `
+        let html = `
         <div>
             <form id="new-course-form">
                 <h2>Add A Course:</h2>
@@ -35,6 +35,8 @@ class Course {
             </form>
         </div>
         `
+
+        Course.courseForm.insertAdjacentHTML("afterbegin", html)
     }
 
     courseHTML() {

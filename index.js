@@ -1,34 +1,32 @@
 const base_url = "http://127.0.0.1:3000"
 const courseService = new CourseService(base_url)
 const destinationService = new DestinationService(base_url)
+let insertName = document.querySelector(".insert-name")
 
-const searchFormContainer = document.getElementById('search')
+// const searchFormContainer = document.getElementById('search')
+const searchFormContainer = document.querySelector('#search')
+
 renderSearchForm();
+destinationService.getDestinations();
 searchFormContainer.addEventListener('submit', handleSearchSubmit)
-
-const main = document.getElementById('main')
 
 const ballImg = document.getElementById('ball')
 ballImg.addEventListener('click', handleBallClick)
 
 function handleBallClick() {
-    Destination.destinationHeading.innerHTML = " ";
-    Course.courseForm.innerHTML = " ";
-    Course.coursesList.innerHTML = " ";
-    if (searchFormContainer.innerText === "") {
-        renderSearchForm();
-        destinationService.getDestinations();
+    clearAll();
+    destinationService.getDestinations();
+   if (searchFormContainer.innerHTML === "") {
+    renderSearchForm();
     } 
-    
-    // Destination.destinationForm.innerHTML = " ";
-    // Destination.destinationsContainer.innerHTML = " ";
-   
-    
-    // destinationService.getDestinations();
 }
 
-// Destination.renderForm();
-// destinationService.getDestinations();
+function clearAll() {
+    Destination.destinationsContainer.innerHTML = "";
+    Destination.destinationHeading.innerHTML = "";
+    Course.coursesList.innerHTML = "";
+    Course.courseForm.innerHTML = "";
+}
 
 // form event listeners
 Destination.destinationForm.addEventListener('submit', handleDestinationSubmit)
@@ -47,22 +45,14 @@ function handleCourseSubmit() {
     event.target.reset();
 }
 
-
-// PRACTICE
-
-// 1. render search on load 
-// 2. add event listener for click event 
-// 3. handle form submission and get value
-// 4. run filter method
-
 function renderSearchForm() {
-    searchFormContainer.innerHTML += `
-        <form>
-            <label>Search for a destination: </label>
-            <input type="text" id="searchQuery"></input>
-            <input type="submit" id="create" value="Search">
-        </form>
-    `
+    let searchForm = `<form>
+                    <label>Search for a destination: </label>
+                    <input type="text" id="searchQuery"></input>
+                    <input type="submit" id="create" value="Search">
+                    </form>`
+                  
+    searchFormContainer.insertAdjacentHTML("afterbegin", searchForm)
 }
 
 function handleSearchSubmit() {
@@ -70,8 +60,6 @@ function handleSearchSubmit() {
     destinationService.search();
     event.target.reset();
 }
-
-
 
 
 
